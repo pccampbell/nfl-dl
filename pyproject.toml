@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nfl-dl"
+version = "0.1.0"
+description = "NFL data loading utilities"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "nflreadpy",
+    "pandas"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nfl_dl*"]
+exclude = ["tests*", "dags*", "models*", "notebooks*"]
