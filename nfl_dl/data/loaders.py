@@ -37,7 +37,12 @@ def load_rosters_season(season: int) -> pd.DataFrame:
     return df
 
 def load_rosters_current_season() -> pd.DataFrame:
-    return nfl.load_rosters().to_pandas()
+    df =  nfl.load_rosters().to_pandas()
+    df = normalize_dataframe(
+        df,
+        int_cols=["jersey_number"]
+    )
+    return df
 
 
 def load_schedules_season(season: int) -> pd.DataFrame:
