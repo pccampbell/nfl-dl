@@ -1,7 +1,7 @@
 # nfl_dl/data/loaders.py
 import nflreadpy as nfl
 import pandas as pd
-from utils.normalize import normalize_dataframe
+from nfl_dl.utils.normalize import normalize_dataframe
 
 
 # ---------- Daily (seasonal + current) ----------
