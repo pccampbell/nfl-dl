@@ -1,6 +1,7 @@
 # nfl_dl/data/loaders.py
 import nflreadpy as nfl
 import pandas as pd
+from utils.normalize import normalize_dataframe
 
 
 # ---------- Daily (seasonal + current) ----------
@@ -28,6 +29,11 @@ def load_team_stats_current_season() -> pd.DataFrame:
 
 
 def load_rosters_season(season: int) -> pd.DataFrame:
+    df = nfl.load_rosters([season]).to_pandas()
+    df = normalize_dataframe(
+        df,
+        int_cols=["jersey_number"]
+    )
     return nfl.load_rosters([season]).to_pandas()
 
 def load_rosters_current_season() -> pd.DataFrame:
