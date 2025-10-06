@@ -32,7 +32,7 @@ def load_rosters_season(season: int) -> pd.DataFrame:
     df = nfl.load_rosters([season]).to_pandas()
     df = normalize_dataframe(
         df,
-        int_cols=["jersey_number"]
+        int_cols=["jersey_number", "weight", "height", "years_exp", "draft_number"]
     )
     return df
 
@@ -40,7 +40,7 @@ def load_rosters_current_season() -> pd.DataFrame:
     df =  nfl.load_rosters().to_pandas()
     df = normalize_dataframe(
         df,
-        int_cols=["jersey_number"]
+        int_cols=["jersey_number", "weight", "height", "years_exp", "draft_number"]
     )
     return df
 
