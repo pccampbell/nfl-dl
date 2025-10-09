@@ -3,7 +3,7 @@ import nflreadpy as nfl
 import pandas as pd
 from nfl_dl.utils.normalize import normalize_dataframe
 
-
+nfl.get_current_season()
 # ---------- Daily (seasonal + current) ----------
 
 def load_pbp_season(season: int) -> pd.DataFrame:
@@ -49,7 +49,7 @@ def load_schedules_season(season: int) -> pd.DataFrame:
     return nfl.load_schedules([season]).to_pandas()
 
 def load_schedules_current_season() -> pd.DataFrame:
-    return nfl.load_schedules().to_pandas()
+    return nfl.load_schedules(nfl.get_current_season()).to_pandas()
 
 
 def load_snap_counts_season(season: int) -> pd.DataFrame:
